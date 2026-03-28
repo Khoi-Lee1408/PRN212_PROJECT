@@ -18,7 +18,7 @@ namespace ContactManager.Models
         [Required, MaxLength(150)]
         public string Email { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Address { get; set; }
     }
 }
