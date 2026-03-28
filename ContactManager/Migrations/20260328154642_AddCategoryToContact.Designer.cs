@@ -11,8 +11,8 @@ using Models;
 namespace ContactManager.Migrations
 {
     [DbContext(typeof(ContactManagementDbContext))]
-    [Migration("20260328061814_UpdateContactAddress")]
-    partial class UpdateContactAddress
+    [Migration("20260328154642_AddCategoryToContact")]
+    partial class AddCategoryToContact
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,10 @@ namespace ContactManager.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
-                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Category")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -61,6 +64,7 @@ namespace ContactManager.Migrations
                         {
                             Id = 1,
                             Address = "Ha Noi",
+                            Category = "Ban be",
                             Email = "nguyenvanan@example.com",
                             FullName = "Nguyen Van An",
                             PhoneNumber = "0912345678"
@@ -69,6 +73,7 @@ namespace ContactManager.Migrations
                         {
                             Id = 2,
                             Address = "Ho Chi Minh",
+                            Category = "Nguoi than",
                             Email = "tranthibinh@example.com",
                             FullName = "Tran Thi Binh",
                             PhoneNumber = "0912345678"
@@ -77,6 +82,7 @@ namespace ContactManager.Migrations
                         {
                             Id = 3,
                             Address = "Đa Nang",
+                            Category = "Shipper Shopee",
                             Email = "levancuong@example.com",
                             FullName = "Le Van Cuong",
                             PhoneNumber = "0912345678"
@@ -85,6 +91,7 @@ namespace ContactManager.Migrations
                         {
                             Id = 4,
                             Address = "Hai Phong",
+                            Category = "Dong nghiep",
                             Email = "phamthidung@example.com",
                             FullName = "Pham Thi Dung",
                             PhoneNumber = "0912345678"
@@ -93,6 +100,7 @@ namespace ContactManager.Migrations
                         {
                             Id = 5,
                             Address = "Can Tho",
+                            Category = "Nguoi than",
                             Email = "hoangvanduc@example.com",
                             FullName = "Hoang Van Đuc",
                             PhoneNumber = "0912345678"
