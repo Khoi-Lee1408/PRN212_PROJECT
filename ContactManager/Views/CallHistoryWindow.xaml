@@ -1,4 +1,4 @@
-﻿<Window x:Class="ContactManager.Views.CallHistoryWindow"
+<Window x:Class="ContactManager.Views.CallHistoryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -87,11 +87,11 @@
 
                     <!-- COLUMNS -->
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                        <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*"/>
-                        <DataGridTextColumn Header="Time"
-                            Binding="{Binding CallTime, StringFormat=dd/MM/yyyy HH:mm}"
-                            Width="*"/>
+                        <DataGridTextColumn Header="Tên"      Binding="{Binding Name}"            Width="*"/>
+                        <DataGridTextColumn Header="SĐT"      Binding="{Binding Phone}"           Width="*"/>
+                        <DataGridTextColumn Header="Thời gian" Binding="{Binding CallTimeDisplay}" Width="*"/>
+                        <DataGridTextColumn Header="Thời lượng" Binding="{Binding DurationDisplay}" Width="Auto"/>
+                        <DataGridTextColumn Header="Loại cuộc gọi" Binding="{Binding CallType}"   Width="Auto"/>
                     </DataGrid.Columns>
 
                 </DataGrid>

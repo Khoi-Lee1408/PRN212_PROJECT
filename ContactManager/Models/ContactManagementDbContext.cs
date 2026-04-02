@@ -1,6 +1,5 @@
-﻿using ContactManager.Models;
+using ContactManager.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +11,7 @@ namespace Models
     public class ContactManagementDbContext : DbContext
     {
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<CallHistory> CallHistories { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

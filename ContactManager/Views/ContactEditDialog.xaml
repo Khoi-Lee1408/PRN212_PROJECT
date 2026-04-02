@@ -1,0 +1,110 @@
+<Window x:Class="ContactManager.ContactEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Contact Details"
+        Width="420" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        FontFamily="Segoe UI">
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FFFDE68A" Offset="0"/>
+            <GradientStop Color="#FFFCD34D" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="Background" Value="#FFFEFCE8"/>
+            <Setter Property="BorderBrush" Value="#FCD34D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,4,0,12"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="bd" CornerRadius="8"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="4"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="bd" Property="BorderBrush" Value="#F59E0B"/>
+                                <Setter TargetName="bd" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#F59E0B" BlurRadius="10" Opacity="0.4"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="6"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="bd" CornerRadius="10" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bd" Property="Opacity" Value="0.88"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bd" Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Margin="20" CornerRadius="14" Background="White"
+            BorderBrush="#FDE68A" BorderThickness="1">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.15"/>
+        </Border.Effect>
+
+        <StackPanel Margin="20">
+            <TextBlock x:Name="lblTitle"
+                       FontSize="18" FontWeight="Bold"
+                       Foreground="#92400E" Margin="0,0,0,18"/>
+
+            <TextBlock Text="Full Name *" Foreground="#78350F" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtFullName"/>
+
+            <TextBlock Text="Phone Number *" Foreground="#78350F" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtPhone"/>
+
+            <TextBlock Text="Email" Foreground="#78350F" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtEmail"/>
+
+            <TextBlock Text="Address" Foreground="#78350F" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtAddress"/>
+
+            <TextBlock Text="Category" Foreground="#78350F" FontWeight="SemiBold"/>
+            <TextBox x:Name="txtCategory"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+                <Button x:Name="btnSave" Content="💾 Save"
+                        Background="#FBBF24" Click="BtnSave_Click"/>
+                <Button x:Name="btnCancel" Content="✖ Cancel"
+                        Background="#6B7280" Click="BtnCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

@@ -1,24 +1,28 @@
-﻿using System.Text;
+using ContactManager.ViewModels;
+using ContactManager.Views;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ContactManager
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Gắn kết View (MainWindow) với ViewModel (ContactViewModel)
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            // ===== SETUP DATACONTEXT =====
+            // Gán ViewModel làm DataContext để tất cả Binding trong XAML hoạt động
+            DataContext = new ContactViewModel();
+        }
+
+        // ===== Mở cửa sổ lịch sử cuộc gọi =====
+        private void OpenCallHistory_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new CallHistoryWindow();
+            window.Owner = this;
+            window.ShowDialog();
         }
     }
 }
