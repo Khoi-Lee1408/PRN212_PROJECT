@@ -201,7 +201,7 @@ namespace ContactManager.ViewModels
                 // ── INSERT ──
                 db.Contacts.Add(SelectedContact);
                 db.SaveChanges();
-                // ⚠ Lưu Id TRƯỚC khi LoadContacts() thay List mới
+                // Lưu Id TRƯỚC khi LoadContacts() thay List mới
                 var newId = SelectedContact.Id;
                 _isNewContact = false;
                 LoadContacts();
